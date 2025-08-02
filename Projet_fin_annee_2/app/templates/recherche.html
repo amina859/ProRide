@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Rechercher un trajet{% endblock %}
+{% block content %}
+<h2>Rechercher un trajet</h2>
+
+<form method="POST">
+    <label for="depart">Départ :</label>
+    <input type="text" name="depart" id="depart"><br><br>
+
+    <label for="destination">Destination :</label>
+    <input type="text" name="destination" id="destination"><br><br>
+
+    <button type="submit">Rechercher</button>
+</form>
+
+<hr>
+
+{% if resultats %}
+    <h3>Résultats :</h3>
+    {% for trajet in resultats %}
+        <p>
+            <strong>Départ :</strong> {{ trajet.depart }}<br>
+            <strong>Destination :</strong> {{ trajet.destination }}<br>
+            <strong>Heure :</strong> {{ trajet.heure_depart }}<br>
+            <strong>Places :</strong> {{ trajet.places }}<br>
+            <strong>Itinéraire :</strong> {{ trajet.itineraire }}<br>
+            <strong>Coût :</strong> {{ trajet.cout }} FCFA<br>
+            <strong>Conducteur :</strong> {{ trajet.email_conducteur }}<br>
+
+            {% if trajet.places > 0 %}
+                <form method="POST" action="{{ url_for('main.reserver', trajet_index=loop.index0) }}">
+                    <button type="submit">Réserver</button>
+                </form>
+            {% else %}
+                <em>Complet</em>
+            {% endif %}
+        </p>
+        <hr>
+    {% endfor %}
+{% else %}
+    <p>Aucun trajet disponible pour le moment.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+Phase	Détails	Durée estimée
+1. Analyse & planification	Cahier des charges, identification des fonctionnalités principales	2-3 jours
+2. Maquettage	Dessins ou maquettes de l’interface (papier ou outil comme Figma)	2 jours
+3. Développement frontend	Création des pages : accueil, formulaire, trajets proposés/recherchés	4-5 jours
+4. Développement backend	Connexion base de données, gestion des utilisateurs et trajets	5-6 jours
+5. Tests & débogage	Vérification du bon fonctionnement, correction des erreurs	2-3 jours
+6. Présentation & rapport	Écriture du rapport + préparation de la soutenance	3-4 jours
+
